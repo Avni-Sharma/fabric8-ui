@@ -43,9 +43,7 @@ export class ImportAppComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
-    this.broadcaster.broadcast('analyticsTracker', {
-      event: 'showImportApp'
-    });
+    this.broadcaster.broadcast('showImportApp', true);
   }
 
   /**
@@ -53,9 +51,7 @@ export class ImportAppComponent implements OnDestroy, OnInit {
    */
   cancel($event: any): void {
     this.router.navigate(['/', this.loggedInUser.attributes.username, this.currentSpace.attributes.name]);
-    this.broadcaster.broadcast('analyticsTracker', {
-      event: 'closeImportApp'
-    });
+    this.broadcaster.broadcast('showImportApp', false);
   }
 
   /**

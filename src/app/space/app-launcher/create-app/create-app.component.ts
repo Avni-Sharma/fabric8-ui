@@ -43,9 +43,7 @@ export class CreateAppComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() {
-    this.broadcaster.broadcast('analyticsTracker', {
-      event: 'showCreateApp'
-    });
+    this.broadcaster.broadcast('showCreateApp', true);
   }
 
   /**
@@ -53,9 +51,7 @@ export class CreateAppComponent implements OnDestroy, OnInit {
    */
   cancel($event: any): void {
     this.router.navigate(['/', this.loggedInUser.attributes.username, this.currentSpace.attributes.name]);
-    this.broadcaster.broadcast('analyticsTracker', {
-      event: 'closeCreateApp'
-    });
+    this.broadcaster.broadcast('showCreateApp', false);
   }
 
   /**

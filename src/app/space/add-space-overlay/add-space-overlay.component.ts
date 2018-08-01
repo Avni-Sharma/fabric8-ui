@@ -140,12 +140,6 @@ export class AddSpaceOverlayComponent implements OnInit {
 
   hideAddSpaceOverlay(): void {
     this.broadcaster.broadcast('showAddSpaceOverlay', false);
-    this.broadcaster.broadcast('analyticsTracker', {
-      event: 'showAddAppOverlay',
-      data: {
-        source: 'space-overlay'
-      }
-    });
   }
 
   showAddAppOverlay(): void {
